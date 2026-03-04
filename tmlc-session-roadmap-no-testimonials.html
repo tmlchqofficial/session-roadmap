@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TMLC Academy Live — Annual Subscription Roadmap</title>
+  <link href="https://fonts.googleapis.com/css2?family=Moderustic:wght@300;400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root{
+      --v:#7C3AED;--m:#C026D3;--g:linear-gradient(135deg,#7C3AED,#C026D3);
+      --ink:#0E0D0C;--bg:#F7F6F3;--w:#FFFFFF;
+      --bd:#E5E3DE;--mu:#7A7670;--mu2:#B0ADA7;
+      --gr:#059669;--amber:#D97706;--blue:#2563EB;--cyan:#0891B2;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family:'Moderustic',sans-serif;
+      background:var(--bg);color:var(--ink);
+      line-height:1.6;
+    }
+
+    /* ═══ HEADER ═══ */
+    .header{
+      background:var(--ink);color:#fff;
+      padding:3rem 2rem;text-align:center;
+      position:relative;overflow:hidden;
+    }
+    .header::before{
+      content:'';position:absolute;inset:0;
+      background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(124,58,237,.15),transparent 70%);
+    }
+    .header-content{position:relative;z-index:1;max-width:900px;margin:0 auto;}
+    .header-eyebrow{
+      font-family:'DM Mono',monospace;font-size:.75rem;
+      letter-spacing:.14em;text-transform:uppercase;
+      color:rgba(124,58,237,.8);margin-bottom:.75rem;
+    }
+    .header-title{
+      font-size:2.5rem;font-weight:800;
+      letter-spacing:-.03em;margin-bottom:.75rem;
+      line-height:1.1;
+    }
+    .header-subtitle{
+      font-size:1.05rem;color:rgba(255,255,255,.65);
+      margin-bottom:1.5rem;line-height:1.6;
+      max-width:700px;margin-left:auto;margin-right:auto;
+    }
+    .header-stats{
+      display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;
+      padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.1);
+    }
+    .hstat{text-align:center;}
+    .hstat-n{
+      font-weight:800;font-size:1.8rem;
+      background:var(--g);-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+    }
+    .hstat-l{
+      font-family:'DM Mono',monospace;font-size:.7rem;
+      color:rgba(255,255,255,.4);margin-top:.25rem;
+      letter-spacing:.08em;
+    }
+
+    /* ═══ CONTAINER ═══ */
+    .container{max-width:1140px;margin:0 auto;padding:3rem 2rem;}
+
+    /* ═══ UPCOMING SESSIONS ═══ */
+    .upcoming{background:var(--w);border:2px solid var(--v);border-radius:20px;padding:2.5rem;margin-bottom:3rem;box-shadow:0 8px 32px rgba(124,58,237,.12);}
+    .upcoming-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem;}
+    .upcoming-title{font-size:1.5rem;font-weight:800;letter-spacing:-.02em;}
+    .upcoming-live{display:flex;align-items:center;gap:.5rem;padding:.5rem 1rem;border-radius:8px;background:rgba(5,150,105,.1);border:1px solid rgba(5,150,105,.2);}
+    .upcoming-live-dot{width:8px;height:8px;border-radius:50%;background:var(--gr);animation:pulse 2s ease-in-out infinite;}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+    .upcoming-live-text{font-family:'DM Mono',monospace;font-size:.75rem;font-weight:500;color:var(--gr);}
+    .upcoming-grid{display:grid;gap:1rem;}
+    .upcoming-session{background:var(--bg);border:1px solid var(--bd);border-radius:12px;padding:1.25rem 1.5rem;display:flex;align-items:center;gap:1.25rem;transition:all .3s;}
+    .upcoming-session:hover{border-color:var(--v);transform:translateX(4px);}
+    .upcoming-date{background:var(--w);border:1px solid var(--bd);border-radius:10px;padding:.75rem;text-align:center;min-width:70px;}
+    .upcoming-date-month{font-family:'DM Mono',monospace;font-size:.65rem;text-transform:uppercase;color:var(--mu2);}
+    .upcoming-date-day{font-size:1.4rem;font-weight:800;color:var(--ink);line-height:1;}
+    .upcoming-info{flex:1;}
+    .upcoming-track{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.35rem;font-weight:500;}
+    .track-foundations{color:#2563EB;}
+    .track-agents{color:var(--v);}
+    .track-rag{color:var(--m);}
+    .track-mlops{color:var(--gr);}
+    .track-cutting{color:var(--cyan);}
+    .upcoming-session-title{font-size:1rem;font-weight:700;margin-bottom:.25rem;line-height:1.3;}
+    .upcoming-session-desc{font-size:.8rem;color:var(--mu);line-height:1.5;}
+
+    /* ═══ SESSION STRUCTURE ═══ */
+    .session-structure{background:var(--ink);color:#fff;border-radius:20px;padding:2.5rem;margin-bottom:3rem;position:relative;overflow:hidden;}
+    .session-structure::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 30% 50%,rgba(124,58,237,.15),transparent 65%);}
+    .ss-content{position:relative;z-index:1;}
+    .ss-title{font-size:1.4rem;font-weight:800;letter-spacing:-.02em;margin-bottom:.75rem;text-align:center;}
+    .ss-subtitle{font-size:.95rem;color:rgba(255,255,255,.6);text-align:center;margin-bottom:2rem;max-width:600px;margin-left:auto;margin-right:auto;}
+    .ss-flow{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:2rem;}
+    .ss-step{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:1.5rem;text-align:center;}
+    .ss-step-num{font-family:'DM Mono',monospace;font-size:.7rem;color:rgba(124,58,237,.7);letter-spacing:.1em;margin-bottom:.5rem;}
+    .ss-step-title{font-size:1rem;font-weight:700;margin-bottom:.5rem;}
+    .ss-step-desc{font-size:.85rem;color:rgba(255,255,255,.6);line-height:1.6;}
+    .ss-note{background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.3);border-radius:12px;padding:1.25rem;text-align:center;}
+    .ss-note-text{font-size:.9rem;color:rgba(255,255,255,.8);line-height:1.65;}
+
+    /* ═══ TOOLS SECTION ═══ */
+    .tools-section{background:var(--w);border:1px solid var(--bd);border-radius:20px;padding:2.5rem;margin-bottom:3rem;}
+    .tools-title{font-size:1.6rem;font-weight:800;letter-spacing:-.02em;text-align:center;margin-bottom:2.5rem;}
+    .tools-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;}
+    .tool-card{background:var(--bg);border:1px solid var(--bd);border-radius:12px;padding:1.5rem 1rem;display:flex;flex-direction:column;align-items:center;gap:.75rem;transition:all .3s;text-align:center;}
+    .tool-card:hover{transform:translateY(-4px);border-color:var(--v);box-shadow:0 8px 24px rgba(124,58,237,.12);}
+    .tool-card.new-tools{background:rgba(124,58,237,.05);border:2px dashed var(--v);}
+    .tool-logo{height:40px;width:auto;max-width:100%;object-fit:contain;}
+    .tool-name{font-size:.85rem;font-weight:700;color:var(--ink);line-height:1.3;}
+    .tool-subtitle{font-size:.7rem;color:var(--mu);margin-top:-.25rem;}
+    .new-tools-text{font-size:.75rem;font-weight:700;color:var(--v);text-transform:uppercase;letter-spacing:.05em;}
+
+    /* ═══ TRACKS OVERVIEW ═══ */
+    .tracks-overview{background:var(--w);border:1px solid var(--bd);border-radius:20px;padding:2.5rem;margin-bottom:3rem;}
+    .tracks-title{font-size:1.8rem;font-weight:800;letter-spacing:-.02em;margin-bottom:.75rem;line-height:1.2;}
+    .tracks-subtitle{font-size:1rem;color:var(--mu);margin-bottom:2.5rem;line-height:1.6;}
+    .tracks-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;}
+    .track-card{background:var(--w);border:2px solid var(--ink);border-radius:16px;padding:2rem;transition:all .3s;text-align:left;}
+    .track-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(14,13,12,.15);}
+    .track-card-number{font-size:2rem;font-weight:800;color:var(--m);margin-bottom:.75rem;line-height:1;}
+    .track-card-title{font-size:1.25rem;font-weight:700;line-height:1.3;color:var(--ink);margin-bottom:.75rem;}
+    .track-card-desc{font-size:.9rem;color:var(--ink);line-height:1.65;}
+
+    /* ═══ EXPLAINER CALLOUT ═══ */
+    .explainer-callout{background:rgba(5,150,105,.08);border-left:4px solid var(--gr);border-radius:0 12px 12px 0;padding:1.25rem 1.5rem;margin:1.5rem 0;}
+    .explainer-title{font-size:.9rem;font-weight:700;color:var(--gr);margin-bottom:.5rem;}
+    .explainer-text{font-size:.82rem;color:var(--ink);line-height:1.65;}
+    .explainer-text strong{color:var(--gr);}
+
+    /* ═══ INTRO SECTION ═══ */
+    .intro{
+      background:var(--w);border:1px solid var(--bd);
+      border-radius:20px;padding:2.5rem;margin-bottom:3rem;
+    }
+    .intro-title{
+      font-size:1.5rem;font-weight:800;
+      letter-spacing:-.02em;margin-bottom:1rem;
+    }
+    .intro-text{
+      font-size:1rem;color:var(--mu);
+      line-height:1.75;margin-bottom:1.5rem;
+    }
+    .intro-highlights{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:1rem;
+    }
+    .ih{
+      background:var(--bg);border:1px solid var(--bd);
+      border-radius:12px;padding:1.25rem;
+    }
+    .ih-icon{font-size:1.5rem;margin-bottom:.5rem;}
+    .ih-title{font-size:.9rem;font-weight:700;margin-bottom:.35rem;}
+    .ih-desc{font-size:.8rem;color:var(--mu);line-height:1.5;}
+
+    /* ═══ HOW IT WORKS ═══ */
+    .how-it-works{
+      background:var(--ink);color:#fff;
+      border-radius:20px;padding:2.5rem;margin-bottom:3rem;
+      position:relative;overflow:hidden;
+    }
+    .how-it-works::before{
+      content:'';position:absolute;inset:0;
+      background:radial-gradient(ellipse 50% 60% at 30% 50%,rgba(124,58,237,.15),transparent 65%);
+    }
+    .hiw-content{position:relative;z-index:1;}
+    .hiw-title{
+      font-size:1.4rem;font-weight:800;
+      letter-spacing:-.02em;margin-bottom:1.5rem;text-align:center;
+    }
+    .hiw-grid{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:1.5rem;
+    }
+    .hiw-card{
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:12px;padding:1.5rem;
+    }
+    .hiw-num{
+      font-family:'DM Mono',monospace;font-size:.7rem;
+      color:rgba(124,58,237,.7);letter-spacing:.1em;
+      margin-bottom:.5rem;
+    }
+    .hiw-card-title{font-size:1rem;font-weight:700;margin-bottom:.5rem;}
+    .hiw-card-desc{font-size:.85rem;color:rgba(255,255,255,.6);line-height:1.6;}
+
+    /* ═══ COMPARISON TABLE ═══ */
+    .comparison{
+      background:var(--w);border:1px solid var(--bd);
+      border-radius:20px;padding:2.5rem;margin-bottom:3rem;
+    }
+    .comparison-header{
+      text-align:center;margin-bottom:2rem;
+    }
+    .comparison-title{
+      font-size:1.5rem;font-weight:800;
+      letter-spacing:-.02em;margin-bottom:.75rem;
+    }
+    .comparison-subtitle{
+      font-size:.95rem;color:var(--mu);
+      max-width:650px;margin:0 auto;line-height:1.7;
+    }
+    .comparison-table-wrap{
+      overflow-x:auto;
+      border-radius:12px;
+      border:1px solid var(--bd);
+    }
+    .comparison-table{
+      width:100%;border-collapse:collapse;
+      background:var(--w);
+    }
+    .comparison-table thead{
+      background:var(--ink);
+    }
+    .comparison-table th{
+      padding:1.25rem 1.5rem;
+      text-align:left;
+      font-size:.8rem;font-weight:600;
+      color:#fff;
+      border-bottom:2px solid rgba(255,255,255,.1);
+    }
+    .comparison-table th:first-child{
+      font-family:'DM Mono',monospace;
+      font-size:.7rem;letter-spacing:.1em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.5);
+    }
+    .comparison-table th.highlight{
+      background:var(--g);
+      position:relative;
+    }
+    .comparison-table th.highlight::before{
+      content:'TMLC';
+      position:absolute;top:.5rem;right:1rem;
+      font-size:.65rem;
+      padding:.25rem .6rem;
+      background:rgba(255,255,255,.2);
+      border-radius:4px;
+      font-family:'DM Mono',monospace;
+      letter-spacing:.08em;
+    }
+    .comparison-table tbody tr{
+      border-bottom:1px solid var(--bg);
+    }
+    .comparison-table tbody tr:last-child{
+      border-bottom:none;
+    }
+    .comparison-table tbody tr:hover{
+      background:var(--bg);
+    }
+    .comparison-table td{
+      padding:1.25rem 1.5rem;
+      font-size:.82rem;
+      vertical-align:top;
+    }
+    .comparison-table td:first-child{
+      font-weight:700;
+      color:var(--ink);
+      min-width:180px;
+    }
+    .comparison-table td.bad{
+      color:var(--mu);
+    }
+    .comparison-table td.good{
+      color:var(--ink);
+      font-weight:600;
+      background:rgba(124,58,237,.02);
+    }
+    .comparison-icon{
+      display:inline-block;
+      width:20px;height:20px;
+      border-radius:50%;
+      text-align:center;
+      line-height:20px;
+      font-size:.7rem;
+      margin-right:.5rem;
+      vertical-align:middle;
+    }
+    .comparison-icon.check{
+      background:rgba(5,150,105,.15);
+      color:var(--gr);
+    }
+    .comparison-icon.cross{
+      background:rgba(220,38,38,.15);
+      color:var(--red);
+    }
+    .comparison-icon.partial{
+      background:rgba(217,119,6,.15);
+      color:var(--amber);
+    }
+    .comparison-detail{
+      display:block;
+      font-size:.75rem;
+      color:var(--mu);
+      margin-top:.25rem;
+      line-height:1.5;
+    }
+    .comparison-highlight-box{
+      background:rgba(124,58,237,.08);
+      border:1px solid rgba(124,58,237,.2);
+      border-radius:12px;
+      padding:1.5rem;
+      margin-top:2rem;
+      text-align:center;
+    }
+    .comparison-highlight-title{
+      font-size:1.1rem;font-weight:800;
+      margin-bottom:.75rem;
+      color:var(--v);
+    }
+    .comparison-highlight-text{
+      font-size:.88rem;
+      color:var(--ink);
+      line-height:1.7;
+      max-width:700px;
+      margin:0 auto;
+    }
+
+    /* ═══ TRACK SECTION ═══ */
+    .track-section{margin-bottom:4rem;}
+    .track-header{
+      background:var(--w);border:1px solid var(--bd);
+      border-radius:16px;padding:2rem 2.5rem;
+      margin-bottom:1.75rem;
+    }
+    .track-meta{display:flex;align-items:center;gap:1.25rem;margin-bottom:.75rem;}
+    .track-icon{
+      width:56px;height:56px;border-radius:12px;
+      display:grid;place-items:center;
+      font-size:1.8rem;flex-shrink:0;
+    }
+    .track-icon.foundations{background:rgba(37,99,235,.1);border:1px solid rgba(37,99,235,.2);}
+    .track-icon.agents{background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.2);}
+    .track-icon.rag{background:rgba(192,38,211,.1);border:1px solid rgba(192,38,211,.2);}
+    .track-icon.mlops{background:rgba(5,150,105,.1);border:1px solid rgba(5,150,105,.2);}
+    .track-icon.production{background:rgba(217,119,6,.1);border:1px solid rgba(217,119,6,.2);}
+    .track-icon.advanced{background:rgba(8,145,178,.1);border:1px solid rgba(8,145,178,.2);}
+    .track-info h2{
+      font-size:1.7rem;font-weight:800;
+      letter-spacing:-.02em;margin-bottom:.35rem;
+    }
+    .track-info p{
+      font-size:.95rem;color:var(--mu);
+    }
+    .track-stats{
+      display:flex;gap:2rem;margin-top:1.25rem;
+      padding-top:1.25rem;border-top:1px solid var(--bd);
+    }
+    .track-stat{display:flex;align-items:center;gap:.5rem;}
+    .track-stat-icon{font-size:.85rem;color:var(--mu2);}
+    .track-stat-text{font-family:'DM Mono',monospace;font-size:.75rem;color:var(--mu);}
+
+    /* ═══ SESSION GRID ═══ */
+    .sessions-grid{
+      display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+      gap:1.5rem;
+    }
+
+    /* ═══ SESSION CARD ═══ */
+    .session{
+      background:var(--w);border:1px solid var(--bd);
+      border-radius:16px;overflow:hidden;
+      transition:transform .3s,box-shadow .3s,border-color .3s;
+      display:flex;flex-direction:column;
+    }
+    .session:hover{
+      transform:translateY(-4px);
+      box-shadow:0 12px 40px rgba(14,13,12,.1);
+      border-color:var(--v);
+    }
+    .session-header{
+      background:var(--bg);padding:1.5rem;
+      border-bottom:1px solid var(--bd);
+    }
+    .session-title{
+      font-size:1.1rem;font-weight:800;
+      letter-spacing:-.02em;margin-bottom:.5rem;
+      line-height:1.25;
+    }
+    .session-subtitle{
+      font-size:.85rem;color:var(--mu);
+      line-height:1.5;
+    }
+    .session-body{padding:1.5rem;flex:1;}
+    .session-section{margin-bottom:1.25rem;}
+    .session-section:last-child{margin-bottom:0;}
+    .session-section-title{
+      font-family:'DM Mono',monospace;font-size:.68rem;
+      letter-spacing:.1em;text-transform:uppercase;
+      color:var(--v);margin-bottom:.65rem;
+    }
+    .session-list{
+      display:flex;flex-direction:column;gap:.45rem;
+    }
+    .session-list-item{
+      display:flex;align-items:flex-start;gap:.6rem;
+      font-size:.82rem;line-height:1.55;
+    }
+    .session-list-item::before{
+      content:'•';color:var(--v);
+      font-weight:700;flex-shrink:0;margin-top:.05rem;
+    }
+    .tech-stack{
+      display:flex;flex-wrap:wrap;gap:.45rem;
+    }
+    .tech-tag{
+      padding:.3rem .7rem;border-radius:6px;
+      font-family:'DM Mono',monospace;font-size:.68rem;
+      font-weight:500;
+      background:rgba(124,58,237,.08);
+      border:1px solid rgba(124,58,237,.15);
+      color:var(--v);
+    }
+    .outcome-box{
+      background:rgba(5,150,105,.06);
+      border:1px solid rgba(5,150,105,.2);
+      border-radius:10px;padding:1rem;
+      margin-top:1rem;
+    }
+    .outcome-label{
+      font-family:'DM Mono',monospace;font-size:.65rem;
+      letter-spacing:.1em;text-transform:uppercase;
+      color:var(--gr);margin-bottom:.4rem;
+    }
+    .outcome-text{
+      font-size:.82rem;font-weight:600;
+      color:var(--ink);line-height:1.55;
+    }
+
+    /* ═══ FOOTER CTA ═══ */
+    .footer-cta{
+      background:var(--ink);color:#fff;
+      border-radius:20px;padding:3rem 2.5rem;
+      text-align:center;margin-top:4rem;
+      position:relative;overflow:hidden;
+    }
+    .footer-cta::before{
+      content:'';position:absolute;inset:0;
+      background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(124,58,237,.2),transparent 70%);
+    }
+    .footer-cta-content{position:relative;z-index:1;}
+    .footer-cta-eyebrow{
+      font-family:'DM Mono',monospace;font-size:.75rem;
+      letter-spacing:.12em;color:rgba(124,58,237,.7);
+      margin-bottom:.75rem;
+    }
+    .footer-cta-title{
+      font-size:1.8rem;font-weight:800;
+      letter-spacing:-.02em;margin-bottom:.75rem;
+    }
+    .footer-cta-text{
+      font-size:1rem;color:rgba(255,255,255,.6);
+      max-width:600px;margin:0 auto 1.75rem;
+      line-height:1.65;
+    }
+    .footer-cta-btn{
+      display:inline-block;
+      background:var(--g);color:#fff;
+      font-weight:700;font-size:1rem;
+      padding:1.1rem 2.5rem;border-radius:12px;
+      text-decoration:none;
+      transition:transform .2s,box-shadow .2s;
+    }
+    .footer-cta-btn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 12px 40px rgba(124,58,237,.3);
+    }
+    .footer-cta-sub{
+      margin-top:1.25rem;
+      font-family:'DM Mono',monospace;font-size:.75rem;
+      color:rgba(255,255,255,.4);
+    }
+
+    @media print{
+      body{background:#fff;}
+      .header{page-break-after:avoid;}
+      .session{page-break-inside:avoid;box-shadow:none;}
+      .footer-cta{display:none;}
+    }
+
+    /* Tablet: 3 columns for tools */
+    @media(max-width:1024px) and (min-width:769px){
+      .tools-grid{grid-template-columns:repeat(3,1fr);}
+    }
+
+    @media(max-width:768px){
+      .header-title{font-size:1.9rem;}
+      .header-stats{gap:1rem;}
+      .container{padding:2rem 1.25rem;}
+      .intro,.how-it-works,.track-header,.comparison,.upcoming,.session-structure,.tools-section{padding:1.5rem;}
+      .intro-highlights,.hiw-grid,.sessions-grid{grid-template-columns:1fr;}
+      .track-meta{flex-direction:column;align-items:flex-start;}
+      .track-stats{flex-wrap:wrap;}
+      .session-header,.session-body{padding:1.25rem;}
+      .footer-cta{padding:2rem 1.5rem;}
+      .footer-cta-title{font-size:1.4rem;}
+      
+      /* Tracks overview mobile */
+      .tracks-grid{grid-template-columns:1fr;}
+      .track-card{padding:1.5rem;}
+      .track-card-number{font-size:1.75rem;}
+      .track-card-title{font-size:1.1rem;}
+      .track-card-desc{font-size:.85rem;}
+      .tracks-title{font-size:1.4rem;}
+      .tracks-subtitle{font-size:.9rem;}
+      
+      /* Tools grid mobile */
+      .tools-grid{grid-template-columns:repeat(2,1fr);gap:.75rem;}
+      .tool-card{padding:1rem .75rem;}
+      .tool-name{font-size:.8rem;}
+      .tool-subtitle{font-size:.65rem;}
+      .tools-title{font-size:1.3rem;margin-bottom:1.75rem;}
+      
+      /* New sections mobile */
+      .ss-flow{grid-template-columns:1fr;}
+      .upcoming-session{flex-direction:column;align-items:flex-start;gap:.75rem;}
+      .upcoming-date{min-width:60px;}
+      
+      /* Comparison table mobile */
+      .comparison-table-wrap{border-radius:8px;}
+      .comparison-table{font-size:.75rem;}
+      .comparison-table th,
+      .comparison-table td{padding:.75rem .5rem;min-width:120px;}
+      .comparison-table td:first-child{
+        min-width:140px;position:sticky;left:0;
+        background:var(--w);z-index:1;
+      }
+      .comparison-table thead th:first-child{
+        position:sticky;left:0;z-index:2;
+      }
+      .comparison-detail{font-size:.7rem;}
+      .comparison-highlight-box{padding:1.25rem;}
+      .comparison-highlight-title{font-size:.95rem;}
+      .comparison-highlight-text{font-size:.8rem;}
+      .explainer-callout{padding:1rem 1.25rem;}
+      .explainer-title{font-size:.82rem;}
+      .explainer-text{font-size:.76rem;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-content">
+    <div class="header-eyebrow">// TMLC ACADEMY LIVE · ANNUAL SUBSCRIPTION</div>
+    <h1 class="header-title">What's Covered in Your Subscription</h1>
+    <p class="header-subtitle">
+      50+ live sessions every year across 6 major tracks. Join anytime. Attend any session. Build 25+ production AI systems. All replays accessible during active subscription. Curriculum evolves continuously as AI evolves.
+    </p>
+    <div class="header-stats">
+      <div class="hstat">
+        <div class="hstat-n">50+</div>
+        <div class="hstat-l">SESSIONS/YEAR</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-n">6</div>
+        <div class="hstat-l">SESSION TRACKS</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-n">25+</div>
+        <div class="hstat-l">SYSTEMS BUILT</div>
+      </div>
+      <div class="hstat">
+        <div class="hstat-n">∞</div>
+        <div class="hstat-l">REPLAY ACCESS</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- UPCOMING SESSIONS -->
+  <div class="upcoming">
+    <div class="upcoming-header">
+      <h2 class="upcoming-title">Next 8 Sessions</h2>
+      <div class="upcoming-live">
+        <div class="upcoming-live-dot"></div>
+        <span class="upcoming-live-text">STARTING MARCH 7</span>
+      </div>
+    </div>
+    <div class="upcoming-grid">
+      <div class="upcoming-session">
+        <div class="upcoming-date">
+          <div class="upcoming-date-month">MAR</div>
+          <div class="upcoming-date-day">7</div>
+        </div>
+        <div class="upcoming-info">
+          <div class="upcoming-track track-foundations">ORIENTATION</div>
+          <h3 class="upcoming-session-title">How to Skyrocket Your Career in the Current AI Chaos?</h3>
+          <p class="upcoming-session-desc">Understand the platform, learning approach, and how to maximize your ROI from live sessions.</p>
+        </div>
+      </div>
+      <div class="upcoming-session">
+        <div class="upcoming-date">
+          <div class="upcoming-date-month">MAR</div>
+          <div class="upcoming-date-day">14</div>
+        </div>
+        <div class="upcoming-info">
+          <div class="upcoming-track track-foundations">FOUNDATIONS</div>
+          <h3 class="upcoming-session-title">HealthCare Patient Triage Agent</h3>
+          <p class="upcoming-session-desc">Build an intelligent healthcare triage system. AI-powered patient assessment → production deployment.</p>
+        </div>
+      </div>
+      <div class="upcoming-session">
+        <div class="upcoming-date">
+          <div class="upcoming-date-month">MAR</div>
+          <div class="upcoming-date-day">21</div>
+        </div>
+        <div class="upcoming-info">
+          <div class="upcoming-track track-mlops">MLOPS & PRODUCTION</div>
+          <h3 class="upcoming-session-title">Semantic Caching using Redis and LangChain</h3>
+          <p class="upcoming-session-desc">Reduce API costs by 80%. Implement intelligent caching with Redis for LLM responses.</p>
+        </div>
+      </div>
+      <div class="upcoming-session">
+        <div class="upcoming-date">
+          <div class="upcoming-date-month">MAR</div>
+          <div class="upcoming-date-day">28</div>
+        </div>
+        <div class="upcoming-info">
+          <div class="upcoming-track track-rag">ADVANCED RAG</div>
+          <h3 class="upcoming-session-title">Vectorless RAG with PageIndex and HashIndex</h3>
+          <p class="upcoming-session-desc">Beyond vector databases. Build high-performance RAG without embeddings using advanced indexing.</p>
+        </div>
+      </div>
+      <div class="upcoming-session">
+        <div class="upcoming-date">
+          <div class="upcoming-date-month">APR</div>
+          <div class="upcoming-date-day">4</div>
+        </div>
+        <div class="upcoming-info">
+          <div class="upcoming-track track-agents">AGENTS & ORCHESTRATION</div>
+          <h3 class="upcoming-session-title">Building Agentic Systems using Google Agent Development Kit</h3>
+          <p class="upcoming-session-desc">Leverage Google's ADK to build production-ready autonomous agents. Tool use → deployment.</p>
+        </div>
+      </div>
+      <div class="upcoming-session">
+        <div class="upcoming-date">
+          <div class="upcoming-date-month">APR</div>
+          <div class="upcoming-date-day">11</div>
+        </div>
+        <div class="upcoming-info">
+          <div class="upcoming-track track-agents">AGENTS & ORCHESTRATION</div>
+          <h3 class="upcoming-session-title">Agentic Architecture and Agentic Frameworks</h3>
+          <p class="upcoming-session-desc">Deep dive into agent design patterns. Compare LangGraph, CrewAI, AutoGen, and custom frameworks.</p>
+        </div>
+      </div>
+      <div class="upcoming-session">
+        <div class="upcoming-date">
+          <div class="upcoming-date-month">APR</div>
+          <div class="upcoming-date-day">18</div>
+        </div>
+        <div class="upcoming-info">
+          <div class="upcoming-track track-agents">AGENTS & ORCHESTRATION</div>
+          <h3 class="upcoming-session-title">Agent with Memory and Cache</h3>
+          <p class="upcoming-session-desc">Build stateful agents that remember context. Implement conversation memory and intelligent caching.</p>
+        </div>
+      </div>
+      <div class="upcoming-session">
+        <div class="upcoming-date">
+          <div class="upcoming-date-month">APR</div>
+          <div class="upcoming-date-day">25</div>
+        </div>
+        <div class="upcoming-info">
+          <div class="upcoming-track track-cutting">CUTTING EDGE</div>
+          <h3 class="upcoming-session-title">N8n + MCP - Streamlit App</h3>
+          <p class="upcoming-session-desc">Integrate N8n workflows with Model Context Protocol. Build interactive Streamlit dashboards.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTRO -->
+  <div class="intro">
+    <h2 class="intro-title">How This Works</h2>
+    <p class="intro-text">
+      Your annual subscription gives you access to all live sessions, code repositories, and other resources that will be shared in the session. We run minimum one session every weekend — Sessions will happen from any track. Sessions are selected based on the current industry need and market trends.
+    </p>
+    <div class="intro-highlights">
+      <div class="ih">
+        <div class="ih-icon">🔴</div>
+        <div class="ih-title">Live Every Weekend</div>
+        <div class="ih-desc">2-hour sessions with global AI practitioners. Real code, real decisions, live. Recorded and available within 24 hours.</div>
+      </div>
+      <div class="ih">
+        <div class="ih-icon">📚</div>
+        <div class="ih-title">Complete Resources Included</div>
+        <div class="ih-desc">Get access to code repositories, notebooks, deployment scripts, and all session materials. Everything you need to build alongside.</div>
+      </div>
+      <div class="ih">
+        <div class="ih-icon">📈</div>
+        <div class="ih-title">Industry-Driven Curriculum</div>
+        <div class="ih-desc">Sessions selected based on current market trends and industry demands. Learn what companies are actually hiring for, not outdated content.</div>
+      </div>
+      <div class="ih">
+        <div class="ih-icon">💼</div>
+        <div class="ih-title">Production-Grade Portfolio</div>
+        <div class="ih-desc">Every session builds a real system. HIPAA compliance, Kafka pipelines, K8s deployments — proof of production AI experience.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SESSION STRUCTURE -->
+  <div class="session-structure">
+    <div class="ss-content">
+      <h2 class="ss-title">Every Session Follows This Structure</h2>
+      <p class="ss-subtitle">
+        Whether the topic is Agents, RAG, or MLOps — every session is designed the same way. You start as a beginner, leave as someone who deployed something to production.
+      </p>
+      <div class="ss-flow">
+        <div class="ss-step">
+          <div class="ss-step-num">01 · BEGINNER (30 MIN)</div>
+          <div class="ss-step-title">Fundamentals</div>
+          <div class="ss-step-desc">What is this? Why does it matter? Core concepts explained from scratch. No prerequisites.</div>
+        </div>
+        <div class="ss-step">
+          <div class="ss-step-num">02 · INTERMEDIATE (60 MIN)</div>
+          <div class="ss-step-title">Build It Live</div>
+          <div class="ss-step-desc">Code walkthrough. Build the system step by step. See real decisions, debugging, trade-offs.</div>
+        </div>
+        <div class="ss-step">
+          <div class="ss-step-num">03 · ADVANCED (30 MIN)</div>
+          <div class="ss-step-title">Production Deployment</div>
+          <div class="ss-step-desc">Deploy to AWS/K8s. Add monitoring, logging, error handling. Make it production-ready.</div>
+        </div>
+      </div>
+      <div class="ss-note">
+        <div class="ss-note-text">
+          <strong>This means you can join ANY session, ANY weekend.</strong> Even if it's your first week, you'll learn. Even if you've been here 6 months, you'll go deeper. The structure ensures everyone gets value.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HOW IT WORKS -->
+  <div class="how-it-works">
+    <div class="hiw-content">
+      <h2 class="hiw-title">Your Subscription Includes</h2>
+      <div class="hiw-grid">
+        <div class="hiw-card">
+          <div class="hiw-num">01 · ACCESS</div>
+          <div class="hiw-card-title">All Live Sessions</div>
+          <div class="hiw-card-desc">Every weekend session across all 6 tracks. No limits. Attend as many as you want.</div>
+        </div>
+        <div class="hiw-card">
+          <div class="hiw-num">02 · REPLAYS</div>
+          <div class="hiw-card-title">Full Replay Access</div>
+          <div class="hiw-card-desc">Miss a session? Watch the replay anytime. Access all past recordings while your subscription is active.</div>
+        </div>
+        <div class="hiw-card">
+          <div class="hiw-num">03 · COMMUNITY</div>
+          <div class="hiw-card-title">500+ Engineer Network</div>
+          <div class="hiw-card-desc">Code reviews, architecture discussions, career advice from engineers at Amazon, Google, TCS, Accenture.</div>
+        </div>
+        <div class="hiw-card">
+          <div class="hiw-num">04 · UPDATES</div>
+          <div class="hiw-card-title">Continuous Curriculum Evolution</div>
+          <div class="hiw-card-desc">New sessions every week. New tools, new techniques, new systems as AI advances.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPARISON WITH GLOBAL PLATFORMS -->
+  <div class="comparison">
+    <div class="comparison-header">
+      <h2 class="comparison-title">How TMLC Compares to Udemy, Coursera & Udacity</h2>
+      <p class="comparison-subtitle">
+        We're not another video course platform. Here's exactly how our live, production-focused curriculum differs from what you get on traditional online learning platforms.
+      </p>
+    </div>
+
+    <div class="comparison-table-wrap">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Udemy</th>
+            <th>Coursera</th>
+            <th>Udacity</th>
+            <th class="highlight">TMLC Academy Live</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Content Format</td>
+            <td class="bad">
+              <span class="comparison-icon cross">✕</span>Pre-recorded videos
+              <span class="comparison-detail">Watch at 2x speed, pause, repeat. Same videos for everyone.</span>
+            </td>
+            <td class="bad">
+              <span class="comparison-icon cross">✕</span>Pre-recorded lectures
+              <span class="comparison-detail">University-style video lectures. Fixed content, no interaction.</span>
+            </td>
+            <td class="bad">
+              <span class="comparison-icon cross">✕</span>Pre-recorded + projects
+              <span class="comparison-detail">Videos + pre-defined projects. No live instruction.</span>
+            </td>
+            <td class="good">
+              <span class="comparison-icon check">✓</span>Live 2-hour sessions
+              <span class="comparison-detail">Real-time coding. Ask questions. See decisions made live. New every week.</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Production Deployment</td>
+            <td class="bad">
+              <span class="comparison-icon cross">✕</span>Rare/Optional
+              <span class="comparison-detail">Most courses end with Jupyter notebooks. Production is an "extra" if covered at all.</span>
+            </td>
+            <td class="bad">
+              <span class="comparison-icon cross">✕</span>Not emphasized
+              <span class="comparison-detail">Academic focus. Theory-heavy. Deployment is brief or skipped.</span>
+            </td>
+            <td class="bad">
+              <span class="comparison-icon partial">~</span>Simulated environments
+              <span class="comparison-detail">Deploy to Udacity's sandbox. Not real AWS/K8s/production infra.</span>
+            </td>
+            <td class="good">
+              <span class="comparison-icon check">✓</span>Every session ends with deployment
+              <span class="comparison-detail">AWS Lambda, K8s, ECS, Render. Real infrastructure. Production-grade systems.</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Systems You Build</td>
+            <td class="bad">
+              <span class="comparison-icon cross">✕</span>Demo/toy projects
+              <span class="comparison-detail">Iris classification, MNIST digits, Titanic survival. Not portfolio-worthy.</span>
+            </td>
+            <td class="bad">
+              <span class="comparison-icon cross">✕</span>Academic exercises
+              <span class="comparison-detail">Assignments for grades. Not designed for real-world interviews.</span>
+            </td>
+            <td class="bad">
+              <span class="comparison-icon partial">~</span>Capstone projects
+              <span class="comparison-detail">1-2 larger projects. Still classroom examples, not production systems.</span>
+            </td>
+            <td class="good">
+              <span class="comparison-icon check">✓</span>25+ live production projects
+              <span class="comparison-detail">HIPAA agents, Kafka pipelines, multi-agent systems, RAG at scale. Built live, deployed to production.</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Curriculum Updates</td>
+            <td class="bad">
+              <span class="comparison-icon cross">✕</span>Static/rarely updated
+              <span class="comparison-detail">Videos from 2020-2022. Outdated by the time you take them. No live updates.</span>
+            </td>
+            <td class="bad">
+              <span class="comparison-icon cross">✕</span>Semester-based updates
+              <span class="comparison-detail">University model. Curriculum updated once a year at best.</span>
+            </td>
+            <td class="bad">
+              <span class="comparison-icon partial">~</span>Periodic refreshes
+              <span class="comparison-detail">Update content every 6-12 months. Still lags behind AI's weekly evolution.</span>
+            </td>
+            <td class="good">
+              <span class="comparison-icon check">✓</span>New session every weekend
+              <span class="comparison-detail">Curriculum evolves weekly. Cover new models, techniques, tools as they drop.</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Instructor Interaction</td>
+            <td class="bad">
+              <span class="comparison-icon cross">✕</span>Forum Q&A only
+              <span class="comparison-detail">Post questions, wait days for generic responses. No live interaction.</span>
+            </td>
+            <td class="bad">
+              <span class="comparison-icon cross">✕</span>Discussion forums
+              <span class="comparison-detail">TAs answer questions. Never talk to actual instructors.</span>
+            </td>
+            <td class="bad">
+              <span class="comparison-icon partial">~</span>Code reviews (extra cost)
+              <span class="comparison-detail">Pay extra for mentor reviews. Asynchronous, not live.</span>
+            </td>
+            <td class="good">
+              <span class="comparison-icon check">✓</span>Live Q&A every session
+              <span class="comparison-detail">Ask questions in real-time. Watch global AI practitioners code and debug live.</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Architecture Thinking</td>
+            <td class="bad">
+              <span class="comparison-icon cross">✕</span>Not taught
+              <span class="comparison-detail">Learn tools, not when/why to use them. No system design discussions.</span>
+            </td>
+            <td class="bad">
+              <span class="comparison-icon partial">~</span>Theory only
+              <span class="comparison-detail">Learn patterns in slides. Don't see trade-offs made in real systems.</span>
+            </td>
+            <td class="bad">
+              <span class="comparison-icon partial">~</span>Some guidance
+              <span class="comparison-detail">Project rubrics show "good" architecture. Don't learn the why behind decisions.</span>
+            </td>
+            <td class="good">
+              <span class="comparison-icon check">✓</span>Every session, live
+              <span class="comparison-detail">RAG vs fine-tuning? Agents vs workflows? See real decisions debated and made.</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Tech Stack Coverage</td>
+            <td class="bad">
+              <span class="comparison-icon partial">~</span>Fragmented
+              <span class="comparison-detail">One course teaches LangChain, another Pinecone. Piece together yourself.</span>
+            </td>
+            <td class="bad">
+              <span class="comparison-icon partial">~</span>Academic tools
+              <span class="comparison-detail">Focus on concepts, not production tools. Sklearn, not LangGraph.</span>
+            </td>
+            <td class="bad">
+              <span class="comparison-icon check">✓</span>Industry tools
+              <span class="comparison-detail">Cover modern stack. But still pre-recorded, no live troubleshooting.</span>
+            </td>
+            <td class="good">
+              <span class="comparison-icon check">✓</span>Full production stack
+              <span class="comparison-detail">LangChain, LangGraph, Pinecone, Weaviate, Kafka, K8s, AWS — all integrated, all live.</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Time to Portfolio</td>
+            <td class="bad">
+              <span class="comparison-icon cross">✕</span>6-12 months
+              <span class="comparison-detail">Take 5-10 courses. Cobble projects together. Still no production deployments.</span>
+            </td>
+            <td class="bad">
+              <span class="comparison-icon cross">✕</span>6-9 months
+              <span class="comparison-detail">Complete specialization. Get certificate. Portfolio still weak for senior roles.</span>
+            </td>
+            <td class="bad">
+              <span class="comparison-icon partial">~</span>4-6 months
+              <span class="comparison-detail">Faster than others. But projects are still "nanodegree projects," not real systems.</span>
+            </td>
+            <td class="good">
+              <span class="comparison-icon check">✓</span>1st month itself
+              <span class="comparison-detail">Build 2 production systems in your first month. 25+ systems by end of year. Portfolio starts immediately.</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Community Quality</td>
+            <td class="bad">
+              <span class="comparison-icon partial">~</span>Beginner-heavy
+              <span class="comparison-detail">Millions of learners. Mostly juniors helping juniors in forums.</span>
+            </td>
+            <td class="bad">
+              <span class="comparison-icon partial">~</span>Academic peers
+              <span class="comparison-detail">Other students in the course. Limited professional network value.</span>
+            </td>
+            <td class="bad">
+              <span class="comparison-icon check">✓</span>Slack community
+              <span class="comparison-detail">Active community. But dispersed across many cohorts and programs.</span>
+            </td>
+            <td class="good">
+              <span class="comparison-icon check">✓</span>500+ practicing engineers
+              <span class="comparison-detail">Amazon, Google, TCS, Accenture. Code reviews, architecture debates, career advice.</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Pricing Model</td>
+            <td class="bad">
+              <span class="comparison-icon partial">~</span>₹8,000–50,000
+              <span class="comparison-detail">Per course. Need 5-10 courses for full coverage. Total: ₹40,000–5,00,000</span>
+            </td>
+            <td class="bad">
+              <span class="comparison-icon partial">~</span>$49–79/month
+              <span class="comparison-detail">₹4,000–6,500/month. Annual: ₹48,000–78,000 for access to courses.</span>
+            </td>
+            <td class="bad">
+              <span class="comparison-icon cross">✕</span>$399–1,600/month
+              <span class="comparison-detail">₹33,000–1,30,000/month. Total program: ₹1,30,000–5,00,000+</span>
+            </td>
+            <td class="good">
+              <span class="comparison-icon check">✓</span>₹9,999/year
+              <span class="comparison-detail">Flat annual rate. 50+ live sessions. All tracks. No hidden costs.</span>
+            </td>
+          </tr>
+
+          <tr>
+            <td>Outcome Focus</td>
+            <td class="bad">
+              <span class="comparison-icon cross">✕</span>Certificate of completion
+              <span class="comparison-detail">PDF certificate. Employers don't care. No proof of real skills.</span>
+            </td>
+            <td class="bad">
+              <span class="comparison-icon partial">~</span>University certificate
+              <span class="comparison-detail">Verified cert from Stanford/MIT. Signals learning, not building.</span>
+            </td>
+            <td class="bad">
+              <span class="comparison-icon partial">~</span>Nanodegree credential
+              <span class="comparison-detail">Industry partnerships. But still a credential, not deployed systems.</span>
+            </td>
+            <td class="good">
+              <span class="comparison-icon check">✓</span>Production portfolio
+              <span class="comparison-detail">25+ deployed systems. GitHub repos. Live URLs. Proof you can build, not just learn.</span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="explainer-callout">
+      <div class="explainer-title">💡 How You Build 2 Systems in Your First Month</div>
+      <div class="explainer-text">
+        Each weekend session = <strong>1 complete system built live and deployed</strong>. You code alongside the instructor in real-time. Attend 2 sessions in your first month (say, Agents on Week 2 and RAG on Week 4) = <strong>2 production systems in your portfolio immediately</strong>. That's 4 weeks × attend half the weekends = instant portfolio. While Udemy learners are still watching intro videos.
+      </div>
+    </div>
+
+    <div class="comparison-highlight-box">
+      <h3 class="comparison-highlight-title">The Core Difference: We Teach Production AI, Not AI Theory</h3>
+      <p class="comparison-highlight-text">
+        Traditional platforms teach you <strong>what AI is</strong>. TMLC teaches you <strong>how to ship AI to production</strong>. Every session ends with a deployed system. You build <strong>2 production systems in your first month</strong> — while others are still watching intro videos. By attending sessions regularly over a year, you'll have <strong>25+ production systems</strong> in your portfolio — not 6 course certificates.
+      </p>
+    </div>
+  </div>
+
+  <!-- TOOLS SECTION -->
+  <div class="tools-section">
+    <h2 class="tools-title">Tools that you will Master!</h2>
+    <div class="tools-grid">
+      <div class="tool-card">
+        <div class="tool-name">🦜🔗 LangChain</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">🤖 OpenAI</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">🤗 Hugging Face</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">🦜🕸️ LangGraph</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">🌲 Pinecone</div>
+      </div>
+      
+      <div class="tool-card">
+        <div class="tool-name">🎨 Chroma</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">👥 CrewAI</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">⚖️ Weights & Biases</div>
+        <div class="tool-subtitle">by CoreWeave</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">✨ Claude</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">☄️ Comet</div>
+      </div>
+      
+      <div class="tool-card">
+        <div class="tool-name">💻 CURSOR</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">🦎 Giskard</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">🐍 DSPy</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">🔵 Neo4j</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">🔴 Redis</div>
+      </div>
+      
+      <div class="tool-card">
+        <div class="tool-name">🟧 Replit</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">🤖 Agent Development Kit</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">📊 Google Vertex AI</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-name">✅ LLM</div>
+      </div>
+      <div class="tool-card new-tools">
+        <div class="new-tools-text">🚀 New Tools as AI Evolves</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRACKS OVERVIEW -->
+  <div class="tracks-overview">
+    <h2 class="tracks-title">5 Session Categories. For one complete AI Engineer.</h2>
+    <p class="tracks-subtitle">Live sessions and project builds are conducted around five core themes covering everything from data pipelines to production deployment and research.</p>
+    
+    <div class="tracks-grid">
+      <div class="track-card">
+        <div class="track-card-number">01</div>
+        <h3 class="track-card-title">Data & AI Pipelines</h3>
+        <p class="track-card-desc">End-to-end data pipelines for AI systems — scalable ingestion, validation, transformation, and feature pipelines built for real-world constraints. Designed to power reliable, outcome-driven AI models in production.</p>
+      </div>
+      
+      <div class="track-card">
+        <div class="track-card-number">02</div>
+        <h3 class="track-card-title">Models & GenAI Systems</h3>
+        <p class="track-card-desc">Learn foundation, fine-tuned, and domain-adapted models engineered for real-world performance. From LLMs and multimodal systems to classical ML and deep learning, optimized for accuracy, cost, latency, and measurable business outcomes in production.</p>
+      </div>
+      
+      <div class="track-card">
+        <div class="track-card-number">03</div>
+        <h3 class="track-card-title">Tools, Agents & Orchestration</h3>
+        <p class="track-card-desc">Combining advanced tooling, intelligent agents, and robust orchestration. From LLM integration and vector databases to planning, memory, routing, state management, and multi-agent coordination — built for secure, scalable, and outcome-driven AI in production environments.</p>
+      </div>
+      
+      <div class="track-card">
+        <div class="track-card-number">04</div>
+        <h3 class="track-card-title">Deployment, AIOps & Observability</h3>
+        <p class="track-card-desc">Learn production-grade infrastructure, CI/CD for AI, monitoring, logging, evaluation, and cost governance. Built to ensure reliability, scalability, traceability, and continuous improvement of AI systems in real-world environments.</p>
+      </div>
+      
+      <div class="track-card">
+        <div class="track-card-number">05</div>
+        <h3 class="track-card-title">Research to Production</h3>
+        <p class="track-card-desc">Turning state-of-the-art research into deployable AI systems. From paper analysis and rapid experimentation to engineering, hardening, and shipping reliable models that deliver measurable impact in production.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER CTA -->
+  <div class="footer-cta">
+    <div class="footer-cta-content">
+      <div class="footer-cta-eyebrow">// READY TO START?</div>
+      <h2 class="footer-cta-title">Join Anytime. Access Everything.</h2>
+      <p class="footer-cta-text">
+        Your subscription gives you access to all sessions across all 6 tracks. Live every weekend. All replays included. Join any session. Build any system. Start wherever you are.
+      </p>
+      <a href="#" class="footer-cta-btn">Join TMLC Academy Live →</a>
+      <div class="footer-cta-sub">
+        ₹9,999/year · 50+ sessions · All tracks · Full replay access · 7-day refund<br>
+        Stanford Seed Spark Program · Top 150 Startups Globally
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
